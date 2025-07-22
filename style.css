@@ -24,7 +24,30 @@ body {
   align-items: center;
   cursor: pointer;
   box-shadow: 0 0 30px rgba(65, 105, 225, 0.3), 0 0 60px rgba(65, 105, 225, 0.2), 0 0 90px rgba(65, 105, 225, 0.1);
+  /* Add transition for smooth animation */
+  transition: transform 0.2s;
 }
+
+/* Energetic shake animation keyframes - moves in all directions */
+@keyframes shake {
+  0%   { transform: translate(0, 0); }
+  10%  { transform: translate(-16px, 8px); }
+  20%  { transform: translate(12px, -14px); }
+  30%  { transform: translate(-10px, 18px); }
+  40%  { transform: translate(14px, -10px); }
+  50%  { transform: translate(-18px, 12px); }
+  60%  { transform: translate(10px, -16px); }
+  70%  { transform: translate(-12px, 14px); }
+  80%  { transform: translate(16px, -8px); }
+  90%  { transform: translate(-14px, 10px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Class to trigger shake animation */
+.shake {
+  animation: shake 0.5s;
+}
+
 
 .answer {
   width: 240px;

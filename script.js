@@ -1,5 +1,8 @@
 // Get the element where the answer will be displayed.
 const answer = document.getElementById("answer");
+// Get the Magic 8-Ball element.
+const magicBall = document.getElementById("magicBall");
+
 // Array of possible answers for the Magic 8-Ball.
 const answers = [
   "It is certain",
@@ -25,6 +28,20 @@ const answers = [
 ];
 
 // Event listener for the Magic 8-Ball click.
-document.getElementById("magicBall").addEventListener("click", function() {
-  answer.innerText = answers[Math.floor(Math.random() * answers.length)];
+magicBall.addEventListener("click", function() {
+  // Clear the answer before shaking
+  answer.innerText = "";
+
+  // Add the shake class to start the energetic animation
+  magicBall.classList.add("shake");
+
+  // Wait for the animation to finish (0.5s), then show the answer
+  setTimeout(function() {
+    // Remove the shake class so it can be triggered again next time
+    magicBall.classList.remove("shake");
+    // Pick a random answer
+    const randomIndex = Math.floor(Math.random() * answers.length);
+    // Show the answer using a template literal
+    answer.innerText = `${answers[randomIndex]}`;
+  }, 500); // 500ms matches the animation duration
 });
